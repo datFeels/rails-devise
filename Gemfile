@@ -11,7 +11,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
 gem 'devise_invitable'
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.3.1'
 gem 'simple_form'
 group :development do
   gem 'better_errors'
