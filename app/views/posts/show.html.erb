@@ -2,7 +2,8 @@
 
 <p>
   <strong>User:</strong>
-  <%= @post.user_id %>
+  <%= @post.user.name %>
+
 </p>
 
 <p>
@@ -15,11 +16,17 @@
   <%= @post.content %>
 </p>
 
-<%= link_to @post.user.name, @post.user %>
+
 
 <%= @post.content %>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+
+
+
+<% @post_attachments.each do |p| %>
+     <div class="thumbnail">
+         <%= image_tag p.picture_url, :style => "width: 500px"; %>
+     </div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

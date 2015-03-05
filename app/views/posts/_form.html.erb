@@ -1,12 +1,22 @@
-<%= simple_form_for(@post) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-  </div>
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
+   <div class="form-inputs">
+     <%= f.label :title %><br>
+     <%= f.text_field :title %>
+     <%= f.label :content %><br>
+     <%= f.text_area :content %>
+   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<%= f.file_field :picture, :multiple => true, name: "post_attachments[picture][]" %>
+   
+<%= f.fields_for :post_attachments do |p| %>
+     <div class="form-inputs">
+       <%= p.label :picture %><br>
+       <%= p.file_field :picture, :multiple => true, name: "post_attachments[picture][]" %>
+     </div>
+<% end %>
+
+   <div class="form-actions">
+     <%= f.submit %>
+   </div>
 <% end %>
