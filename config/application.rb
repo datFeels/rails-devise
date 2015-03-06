@@ -22,6 +22,8 @@ module RailsDevise
 
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
+    config.active_support.escape_html_entities_in_json = true
+    config.action_view.embed_authenticity_token_in_remote_forms = true
 
   end
 end
