@@ -14,7 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require likes
 //= require_tree .
+
+
 $(function() {
   $(document).foundation();
 });

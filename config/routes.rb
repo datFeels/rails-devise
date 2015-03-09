@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   
-  match 'like' => 'users#like', :via => [:get, :post]
-  match 'unlike' => 'users#unlike', :via => [:get, :post]
+  match 'like' => 'users#like', :via => [:post]
+  match 'unlike' => 'users#unlike', :via => [:post]
 end

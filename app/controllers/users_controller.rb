@@ -46,7 +46,10 @@ class UsersController < ApplicationController
       else
           @likeable = Comment.find(params[:likeable_id])
       end
-	current_user.like!(@likeable)
+	  current_user.like!(@likeable)
+  	respond_to do |format|
+        format.json { render json: { likes: @likeable.likers(User).count } }
+    end
   end
   
   def unlike
@@ -55,7 +58,10 @@ class UsersController < ApplicationController
       else
           @likeable = Comment.find(params[:likeable_id])
       end
-	current_user.unlike!(@likeable)
+  	current_user.unlike!(@likeable)
+	  respond_to do |format|
+        format.json { render json: { likes: @likeable.likers(User).count } }
+    end
   end
 
   private
