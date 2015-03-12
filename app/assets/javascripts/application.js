@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation
+//= require_self 
 //= require likes
 //= require_tree .
 

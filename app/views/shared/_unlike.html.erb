@@ -1,1 +1,10 @@
-<%= link_to "like", like_path(likeable_id: likeable.id, likeable_type: likeable.class) , remote: true, method: :post , class: "like" %>
+<% if current_user.likes?(likeable) %>
+	<div id="unlike">
+	    <%= link_to "Unlike", unlike_path(likeable_id: likeable.id, likeable_type: likeable.class ), remote: true, method: :post %>
+	</div>
+<% else %>
+	<div id="unlike", class="hide">
+	    <%= link_to "Unlike", unlike_path(likeable_id: likeable.id, likeable_type: likeable.class ), remote: true, method: :post %>
+	</div>
+<% end %>
+

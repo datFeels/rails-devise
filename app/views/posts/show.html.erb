@@ -16,8 +16,6 @@
   <%= @post.content %>
 </p>
 
-
-
 <%= @post.content %>
 
 
@@ -28,8 +26,20 @@
      </div>
 <% end %>
 
-<%= render 'shared/like_form', likeable: @post %>
+
+
+
+
+
+
+
+<% if user_signed_in? %>
+<%= render 'shared/like', likeable: @post  %> 
+<%= render 'shared/unlike', likeable: @post %>
+<% end %>
+
 <div class="likes"><%= pluralize(@post.likers(User).count, 'like')%></div>
+<div id="likeCounts"><%= @post.likers(User).count %></div> <p>likes</p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
